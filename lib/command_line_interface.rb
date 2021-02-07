@@ -19,7 +19,7 @@ class CommandLineInterface
 
   def add_attributes_to_students
     Student.all.each do |student|
-      attributes = Scraper.scrape_profile_page(BASE_PATH + student.profile_url)
+      attributes = Scraper.scrape_profile_page(BASE_PATH)
       student.add_student_attributes(attributes)
     end
   end
@@ -30,6 +30,7 @@ class CommandLineInterface
       puts "  location:".colorize(:light_blue) + " #{student.location}"
       puts "  profile quote:".colorize(:light_blue) + " #{student.profile_quote}"
       puts "  bio:".colorize(:light_blue) + " #{student.bio}"
+              binding.pry
       puts "  twitter:".colorize(:light_blue) + " #{student.twitter}"
       puts "  linkedin:".colorize(:light_blue) + " #{student.linkedin}"
       puts "  github:".colorize(:light_blue) + " #{student.github}"
